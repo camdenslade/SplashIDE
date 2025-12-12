@@ -1,0 +1,17 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "rootDir": "../",
+    "outDir": "../../dist-ts/browser",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    "module": "esnext"
+  },
+  "include": [
+    "../**/*"
+  ],
+  "references": [
+    { "path": "../common" }
+  ]
+}

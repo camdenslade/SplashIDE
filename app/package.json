@@ -1,0 +1,79 @@
+{
+  "name": "splashide",
+  "version": "0.1.0",
+  "description": "A TypeScript-focused AI-powered IDE.",
+  "author": "Cam Slade",
+  "main": "dist-ts/electron-main/main.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development concurrently \"npm:start:electron\" \"npm:start:vite\"",
+    "compile": "npx tsc -b",
+    "start:electron": "wait-on http://localhost:5173 && electron . --open-dev-tools",
+    "start:vite": "cd renderer && npm run dev",
+    "build": "npm run compile && npm run build:renderer && electron-builder",
+    "build:prod": "cross-env NODE_ENV=production npm run build",
+    "build:electron": "npm run compile",
+    "build:renderer": "npm --prefix renderer run build",
+    "package": "npm run build:prod",
+    "lint": "eslint . --ext .js,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.ts,.tsx --fix",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,css,html}\""
+  },
+  "dependencies": {
+    "axios": "^1.13.2",
+    "concurrently": "^9.2.1",
+    "cross-env": "^10.1.0",
+    "diff": "^5",
+    "monaco-editor": "^0.55.1",
+    "node-fetch": "^2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "wait-on": "^9.0.3"
+  },
+  "devDependencies": {
+    "@types/diff": "^7.0.2",
+    "@types/node-fetch": "^2.6.13",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@typescript-eslint/eslint-plugin": "^8.49.0",
+    "@typescript-eslint/parser": "^8.49.0",
+    "electron": "^28",
+    "electron-builder": "^24",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "prettier": "^3.7.4",
+    "typescript": "^5.9.3"
+  },
+    "build": {
+      "appId": "com.splash.ide",
+      "files": [
+        "dist-ts/**/*",
+        "dist-ts/renderer/**/*",
+        "build/app.manifest.json",
+        "package.json"
+      ],
+      "extraMetadata": {
+        "main": "dist-ts/electron-main/main.js"
+      },
+      "win": {
+        "target": [
+          "nsis"
+        ],
+        "icon": "../public/icons/icon.png"
+      },
+      "mac": {
+        "target": [
+          "dmg"
+        ],
+        "icon": "../public/icons/icon.png"
+      },
+      "nsis": {
+        "oneClick": false,
+        "allowToChangeInstallationDirectory": true
+      }
+    }
+}

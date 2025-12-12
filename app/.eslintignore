@@ -1,0 +1,4 @@
+dist/
+node_modules/
+llm/llama.cpp.exe
+llm/models/

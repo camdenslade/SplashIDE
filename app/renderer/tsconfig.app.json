@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "types": ["vite/client"],
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "verbatimModuleSyntax": false,
+    "moduleDetection": "force",
+    "jsx": "react-jsx",
+    "strict": true,
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": ["../src/*"]
+    }
+  },
+  "include": [
+    "src", 
+    "src/types", 
+    "src/types/**/*.d.ts", 
+    "src/App.tsx",
+    "../src/browser/**/*",
+    "../src/common/**/*",
+    "../src/utils/**/*",
+    "../src/monaco.ts"
+  ]
+}

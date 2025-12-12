@@ -1,0 +1,21 @@
+/* Workbench layout container styles. Add real theming as needed. */
+:root {
+  --workbench-bg: #1e1e1e;
+  --workbench-foreground: #e5e5e5;
+}
+
+body {
+  margin: 0;
+  background: var(--workbench-bg);
+  color: var(--workbench-foreground);
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+.workbench-root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: var(--workbench-bg);
+}

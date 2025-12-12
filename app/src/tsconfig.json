@@ -1,0 +1,10 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./common" },
+    { "path": "./browser" },
+    { "path": "./electron-main" },
+    { "path": "./extensions" }
+  ]
+}
+

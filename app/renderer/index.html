@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+
+    <script>
+      // Prevent Electron crash when string-based drag/drop handlers fire before JS loads.
+      window.dragEvent = function (e) {
+        try { e?.preventDefault?.(); } catch (_) {}
+      };
+    </script>
+    
+    <script>
+      // FIX ELECTRON CRASH: define dragEvent BEFORE ANY JS RUNS
+      // Electron resolves string event handlers like ondrag="dragEvent(event)" 
+      // by looking up window.dragEvent. If missing, it crashes with 0xC0000409.
+      window.dragEvent = function (e) {
+        try { e?.preventDefault?.(); } catch (_) {}
+      };
+    </script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Splash IDE</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
