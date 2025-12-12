@@ -1,7 +1,7 @@
 # Developer Guide
 
 ## Overview
-
+This IDE primarily serves as a personal tool for my own development purposes. Feel free to use it or propose changes/fixes or port your own version.
 This guide provides comprehensive information for developers working on the Splash IDE codebase. The application follows VS Code's architecture patterns with a service-based design, dependency injection, and strict TypeScript.
 
 ## Table of Contents
