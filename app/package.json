@@ -48,32 +48,32 @@
     "prettier": "^3.7.4",
     "typescript": "^5.9.3"
   },
-    "build": {
-      "appId": "com.splash.ide",
-      "files": [
-        "dist-ts/**/*",
-        "dist-ts/renderer/**/*",
-        "build/app.manifest.json",
-        "package.json"
+  "build": {
+    "appId": "com.splash.ide",
+    "files": [
+      "dist-ts/**/*",
+      "dist-ts/renderer/**/*",
+      "build/app.manifest.json",
+      "package.json"
+    ],
+    "extraMetadata": {
+      "main": "dist-ts/electron-main/main.js"
+    },
+    "win": {
+      "target": [
+        "nsis"
       ],
-      "extraMetadata": {
-        "main": "dist-ts/electron-main/main.js"
-      },
-      "win": {
-        "target": [
-          "nsis"
-        ],
-        "icon": "../public/icons/icon.png"
-      },
-      "mac": {
-        "target": [
-          "dmg"
-        ],
-        "icon": "../public/icons/icon.png"
-      },
-      "nsis": {
-        "oneClick": false,
-        "allowToChangeInstallationDirectory": true
-      }
+      "icon": "../public/icons/icon.png"
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "icon": "../public/icons/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
     }
+  }
 }

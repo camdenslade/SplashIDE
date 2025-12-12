@@ -6,7 +6,8 @@
     "outDir": "../../dist-ts/browser",
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "jsx": "react-jsx",
-    "module": "esnext"
+    "module": "esnext",
+    "types": ["react", "react-dom"]
   },
   "include": [
     "../**/*"
